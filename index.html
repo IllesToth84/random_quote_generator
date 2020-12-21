@@ -48,10 +48,44 @@
             {
                 quote: "Lies run sprints, but the truth runs marathons. The truth will win this marathon in court.",
                 author: "Michael Jackson"
-            }
-
+            },
+            {
+                quote: "The most important kind of freedom is to be what you really are. You trade in your reality for a role. You give up your ability to feel, and in exchange, put on a mask.",
+                author: "Jim Morrison"
+            },
+            {
+                quote: "On stage I make love to twenty five thousand people; and then I go home alone.",
+                author: "Janis Joplin"
+            },
+            {
+                quote: "It’s like, how did Columbus discover America when the Indians were already here? What kind of shit is that, but white people’s shit?",
+                author: "Miles Davis"
+            },
+            {
+                quote: "I've always wanted to smash a guitar over someone's head. You just can't do that with a piano.",
+                author: "Elton John"
+            },
+            {
+                quote: "I can't really change my life to accommodate people who are jealous. I don't see why I should.",
+                author: "Sting"
+            },
+            {
+                quote: "You can be anything you want to be, just turn yourself into anything you think that you could ever be.",
+                author: "Freddie Mercury"
+            },
+            {
+                quote: "With this darkness all around me, I like to be liked. In this emptiness and fear, I want to be wanted. Cause I love to be loved.",
+                author: "Peter Gabriel"
+            },
+            {
+                quote: "Some scientists claim that hydrogen, because it is so plentiful, is the basic building block of the universe. I dispute that. I say there is more stupidity than hydrogen, and that is the basic building block of the universe.",
+                author: "Frank Zappa"
+            },
+            {
+               quote: "Instead of getting married again, I'm going to find a woman I don't like and just give her a house.",
+               author: "Rod Stewart"
+            },
         ]
-
 
         window.onload = init;
         function init() {
@@ -63,9 +97,19 @@
             let randomIndex = Math.floor(Math.random() * quoteSize);
             let randomQuote = QUOTEBASE[randomIndex].quote;
             let randomAuthor = QUOTEBASE[randomIndex].author;
+            let randomQuoteData = QUOTEBASE[randomIndex];
+
+            let twitterLink = "https://twitter.com/intent/tweet?hashtags=quotes&amp;related=freecodecamp&amp;text="
+            
+            let quoteInApiFormat = randomQuoteData.quote.replace(/ /g, "%20");
+            twitterLink += quoteInApiFormat;
+            
+            let authorInApiFormat = randomQuoteData.author.replace(/ /g, "%20");
+            twitterLink += authorInApiFormat;
+
+            document.querySelector("#tweet-quote").href = twitterLink;
             document.querySelector("#text").innerText = `"${randomQuote}"`;
             document.querySelector("#author").innerText = `${randomAuthor}`;
-            console.log(randomQuote);
         }
 
     </script>
@@ -103,14 +147,13 @@
                         <div id="author"></div>
                       </p>          
                     <button id="new-quote" onclick="createQuote()" class="btn btn-success">New Quote</button>
-                    <a href="https://www.twitter.com/intent/tweet" id="tweet-quote" class="btn btn-primary" target="_blank">Tweet Quote</a>
+                    <a href="#" id="tweet-quote" class="btn btn-primary" target="_blank">Tweet Quote</a>
                     </div>
                   </div>
             </wrapper>
         </div>           
     </div>
 </div>
-
 
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
