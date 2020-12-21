@@ -4,11 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.5.3/dist/css/bootstrap.min.css" integrity="sha384-TX8t27EcRE3e/ihU7zmQxVncDAy5uIKz4rEkgIXeMed4M0jlfIDPvg6uqKI2xXr2" crossorigin="anonymous">
-    <title>Document</title>
+    <title>Random Quote Generator</title>
 
     <script>
 
-        const QUOTEBANK = [
+        const QUOTEBASE = [
             {
                 quote: "People still mourn when people die. That’s self-sympathy. All human beings are selfish to a certain extent, and that’s why people get so sad when someone dies. They haven’t finished using him.",
                 author: "Jimi Hendrix"
@@ -55,14 +55,14 @@
 
         window.onload = init;
         function init() {
-            generateQuote();
+            createQuote();
         };
 
-        function generateQuote() {
-            let quoteSize = QUOTEBANK.length;
+        function createQuote() {
+            let quoteSize = QUOTEBASE.length;
             let randomIndex = Math.floor(Math.random() * quoteSize);
-            let randomQuote = QUOTEBANK[randomIndex].quote;
-            let randomAuthor = QUOTEBANK[randomIndex].author;
+            let randomQuote = QUOTEBASE[randomIndex].quote;
+            let randomAuthor = QUOTEBASE[randomIndex].author;
             document.querySelector("#text").innerText = `"${randomQuote}"`;
             document.querySelector("#author").innerText = `${randomAuthor}`;
             console.log(randomQuote);
@@ -102,7 +102,7 @@
                       <p class="card-text mx-auto">
                         <div id="author"></div>
                       </p>          
-                    <button id="new-quote" onclick="generateQuote()" class="btn btn-success">New Quote</button>
+                    <button id="new-quote" onclick="createQuote()" class="btn btn-success">New Quote</button>
                     <a href="https://www.twitter.com/intent/tweet" id="tweet-quote" class="btn btn-primary" target="_blank">Tweet Quote</a>
                     </div>
                   </div>
