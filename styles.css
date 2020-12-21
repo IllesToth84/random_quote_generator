@@ -1,0 +1,24 @@
+body {
+  background-color: black;
+}
+
+.card-header {
+  background-color: #007bff;
+  color: white;
+}
+
+#text {
+  font-size: 1.6em;
+}
+
+#author {
+  font-size: 1.2em;
+  font-style: italic;
+  margin-top: 2em;
+  color: #007bff;
+}
+
+.card-buttons {
+  display: flex;
+  justify-content: flex-end;
+}
